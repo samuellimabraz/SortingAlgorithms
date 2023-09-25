@@ -17,7 +17,7 @@ using sorting::SortingMethod;
 
 // Define the file paths for the input and output files
 const string FILE_PATH = "resource\\aurelio40000.txt";
-const string OUTPUT_FILE_PATH = "resource\\sorting_times.csv";
+const string OUTPUT_FILE_PATH = "output\\sorting_times.csv";
 
 int main()
 { 
@@ -28,9 +28,9 @@ int main()
         int time;
 
         // Create an output file stream to write the sorting times to a CSV file
-        //std::ofstream outfile(OUTPUT_FILE_PATH);
+        std::ofstream outfile(OUTPUT_FILE_PATH);
         // Write the header row to the file
-        //outfile << "Sorting Method,Input Size,Execution Time\n";
+        outfile << "Sorting Method,Input Size,Execution Time\n";
     
         // Create vectors of different sizes to sort
         vector<int> sizes = {1000, 5000, 10000, 15000, 20000, 30000, 40000};
@@ -38,21 +38,21 @@ int main()
 
         for (auto it = algorithms.begin(); it != algorithms.end(); ++it) {
             auto method = it->first;
-            //const auto& algorithm = it->second;
+            
             sorter.setSortingMethod(method);
             cout << "Sorting Method: " << sorter.getSortingMethodName() << '\n';
 
-            // for (int size : sizes) {
-            //     vector<string> words = wordManager.getSliceWords(size);
-            //     cout << "Tamanho do vetor: " << size << '\n'; 
+            for (int size : sizes) {
+                vector<string> words = wordManager.getSliceWords(size);
+                cout << "Size: " << size << '\n'; 
 
-            //     // Perform the sorting operation and measure the execution time
-            //     time = sorter.sort(words, size);
-            //     cout << "Execution Time: " << time << " miliseconds" << '\n'; 
+                // Perform the sorting operation and measure the execution time
+                time = sorter.sort(words, size);
+                cout << "Execution Time: " << time << " miliseconds" << '\n'; 
 
-            //     // Write the sorting method, input size, and execution time to the output file
-            //     //outfile << sorter.getSortingMethodName() << "," << size << "," << time << "\n";
-            // }
+                // Write the sorting method, input size, and execution time to the output file
+                outfile << sorter.getSortingMethodName() << "," << size << "," << time << "\n";
+            }
         }
     
     } catch (const std::exception& e) {

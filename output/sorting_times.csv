@@ -1,0 +1,22 @@
+Sorting Method,Input Size,Execution Time
+Bubble Sort,1000,16
+Bubble Sort,5000,251
+Bubble Sort,10000,1051
+Bubble Sort,15000,2375
+Bubble Sort,20000,4211
+Bubble Sort,30000,9556
+Bubble Sort,40000,17035
+Selection Sort,1000,0
+Selection Sort,5000,164
+Selection Sort,10000,615
+Selection Sort,15000,1405
+Selection Sort,20000,2507
+Selection Sort,30000,5634
+Selection Sort,40000,10023
+Insertion Sort,1000,17
+Insertion Sort,5000,133
+Insertion Sort,10000,537
+Insertion Sort,15000,1248
+Insertion Sort,20000,2249
+Insertion Sort,30000,5044
+Insertion Sort,40000,8844

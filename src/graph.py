@@ -2,9 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Carrega o arquivo CSV em um DataFrame do pandas
-df = pd.read_csv(
-    r"resource\sorting_times.csv"
-)
+df = pd.read_csv(r"output\sorting_times.csv")
 
 # Cria um gráfico de linhas para cada algoritmo de ordenação
 fig, ax = plt.subplots()
@@ -16,4 +14,5 @@ ax.legend()
 ax.set_xlabel("Tamanho do Vetor")
 ax.set_ylabel("Tempo de Execução (ms)")
 ax.set_title("Desempenho dos Algoritmos de Ordenação")
+plt.savefig(r"output\sorting_times.png")
 plt.show()
