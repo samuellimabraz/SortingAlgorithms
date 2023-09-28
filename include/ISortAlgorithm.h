@@ -1,4 +1,4 @@
-// SortingAlgorithm.h
+// ISortingAlgorithm.h
 #pragma once
 
 #include <vector>
@@ -7,12 +7,12 @@
 namespace sorting {
 
 /**
- * @brief Abstract class that defines a contract for sorting algorithms.
+ * @brief Interface that defines a contract for sorting algorithms.
  * 
  * @tparam T The type of data to sort.
  */
 template <typename T>
-class SortingAlgorithm {
+class ISortAlgorithm {
 public:
     /**
      * @brief Sorts the given data in place.
@@ -28,9 +28,6 @@ public:
      * @return The name of the sorting algorithm.
      */
     virtual std::string getName() const = 0;
-    
-private:
-    std::string name;
 };
 
 } // namespace sorting

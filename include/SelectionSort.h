@@ -1,11 +1,11 @@
 #pragma once
 
-#include "SortingAlgorithm.h"
+#include "ISortAlgorithm.h"
 
 namespace sorting {
-
+    
 template <typename T>
-class SelectionSort : public SortingAlgorithm<T> {
+class SelectionSort : public ISortAlgorithm<T> {
 public:
     void sort(std::vector<T>& data, int n) override
     {
@@ -18,7 +18,7 @@ public:
                 if (data[j] < data[minIndex])
                     minIndex = j;
             }
-            swap(data[minIndex], data[i]);
+            std::swap(data[minIndex], data[i]);
         }
     }
 

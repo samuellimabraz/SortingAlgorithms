@@ -1,11 +1,11 @@
 // InsertionSort.h
 #pragma once
-#include "SortingAlgorithm.h"
+#include "ISortAlgorithm.h"
 
 namespace sorting {
 
 template <typename T>
-class InsertionSort : public SortingAlgorithm<T> {
+class InsertionSort : public ISortAlgorithm<T> {
 public:
     void sort(std::vector<T>& data, int n) override {
         int j;
