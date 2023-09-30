@@ -5,8 +5,25 @@ import pandas as pd
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 import threading
-
 from model import *
+
+import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+STRING_PREDICTIONS_FILE = os.path.join(
+    current_dir, "..", "output", "model", "sorting_times_string_predictions.csv"
+)
+INT_PREDICTIONS_FILE = os.path.join(
+    current_dir, "..", "output", "model", "sorting_times_int_predictions.csv"
+)
+STRING_TIMES_FILE = os.path.join(
+    current_dir, "..", "output", "times", "sorting_times_string.csv"
+)
+INT_TIMES_FILE = os.path.join(
+    current_dir, "..", "output", "times", "sorting_times_int.csv"
+)
+IMAGE_DIR = os.path.join(current_dir, "..", "output", "images")
 
 
 class Application(tk.Frame):
@@ -476,7 +493,7 @@ class Application(tk.Frame):
             None
         """
         if self.fig:
-            self.fig.savefig(f"output\\images\\sorting_times{self.image_count}.png")
+            self.fig.savefig(os.path.join(IMAGE_DIR, f"graph_{self.image_count}.png"))
             self.image_count += 1
             messagebox.showinfo("Sucess", "Graph saved successfully!")
         else:
@@ -499,15 +516,15 @@ class Application(tk.Frame):
         try:
             if self.data_type_algorithm == "-s":
                 return (
-                    pd.read_csv(r"output\model\sorting_times_string_predictions.csv")
+                    pd.read_csv(STRING_PREDICTIONS_FILE)
                     if predict
-                    else pd.read_csv(r"output\times\sorting_times_string.csv")
+                    else pd.read_csv(STRING_TIMES_FILE)
                 )
             else:
                 return (
-                    pd.read_csv(r"output\model\sorting_times_int_predictions.csv")
+                    pd.read_csv(INT_PREDICTIONS_FILE)
                     if predict
-                    else pd.read_csv(r"output\times\sorting_times_int.csv")
+                    else pd.read_csv(INT_TIMES_FILE)
                 )
         except FileNotFoundError:
             messagebox.showerror(
@@ -743,11 +760,13 @@ class Application(tk.Frame):
         # Salvar o DataFrame em um arquivo CSV
         if self.data_type_algorithm == "-s":
             prediction_df.to_csv(
-                "output\\model\\sorting_times_string_predictions.csv", index=False
+                STRING_PREDICTIONS_FILE,
+                index=False,
             )
         else:
             prediction_df.to_csv(
-                f"output\\model\\sorting_times_int_predictions.csv", index=False
+                INT_PREDICTIONS_FILE,
+                index=False,
             )
         if self.data_type_algorithm == "-s":
             self.model_string_fitted = True
