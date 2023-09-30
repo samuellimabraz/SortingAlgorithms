@@ -2,6 +2,10 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
 
 class LinearRegression:
     """
@@ -295,7 +299,10 @@ class PolynomialFeatures:
 
 if __name__ == "__main__":
     # Carregar os dados do arquivo CSV
-    df = pd.read_csv("output\sorting_times_int_test.csv")
+    data_file = os.path.join(
+        current_dir, "..", "output", "times", "sorting_times_int.csv"
+    )
+    df = pd.read_csv(data_file)
 
     # Obter a lista de métodos de ordenação
     sorting_methods = df["Sorting Method"].unique()
