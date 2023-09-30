@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <ctime>
+#include <chrono>
 
 #include "ISortAlgorithm.h"
 #include "BubbleSort.h"
@@ -60,11 +61,13 @@ class SortAlgorithm
          */
         int sort(std::vector<T>& data, int n) const
         {  
-            auto start = clock();
+            auto start = std::chrono::high_resolution_clock::now();
             // Delegate sorting to the selected algorithm
             algorithms.at(currentMethod)->sort(data, n);
-            auto end = clock();
-            return (int) ((end - start) * 1000 / CLOCKS_PER_SEC);
+            auto end = std::chrono::high_resolution_clock::now();
+
+            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+            return duration.count();
         }
 
 

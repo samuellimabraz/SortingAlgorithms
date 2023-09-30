@@ -44,8 +44,10 @@ void FileHandler::loadLines()
         throw std::runtime_error("Failed to open file");
 
     string line;
+    int i = 0;
     while (getline(file, line)) 
-        lines.push_back(line);
+        if (i++ > 0)
+            lines.push_back(line);
     
     file.close();
 }
