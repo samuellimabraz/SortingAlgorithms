@@ -9,16 +9,23 @@ class SelectionSort : public ISortAlgorithm<T> {
 public:
     void sort(std::vector<T>& data, int n) override
     {
-        int minIndex;
-        for (int i = 0; i < n-1; i++)
+        int minIndex, maxIndex;
+        for (int start = 0, end = n-1; start < end; start++, end--)
         {
-            minIndex = i;
-            for (int j = i+1; j < n; j++)
+            minIndex = maxIndex = start;
+            for (int i = start; i <= end; i++)
             {
-                if (data[j] < data[minIndex])
-                    minIndex = j;
+                if (data[i] > data[maxIndex])
+                    maxIndex = i;
+                if (data[i] < data[minIndex])
+                    minIndex = i;
             }
-            std::swap(data[minIndex], data[i]);
+            std::swap(data[start], data[minIndex]); // Coloca o menor elemento no início
+            
+            if(maxIndex == start) // Se o máximo estava na posição inicial, ele foi trocado com o mínimo
+                maxIndex = minIndex;
+
+            std::swap(data[end], data[maxIndex]); // Coloca o maior elemento no final
         }
     }
 

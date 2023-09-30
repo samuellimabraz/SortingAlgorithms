@@ -1,5 +1,6 @@
-doente
-convidativo
+
+
+doenteconvidativo
 desaire
 paranoa
 arrolho
@@ -1905,7 +1906,7 @@ bravio
 primordio
 interiormente
 co-delinquenc
-exª
+exï¿½
 subsolar
 refocilamento
 judy
@@ -6863,7 +6864,7 @@ otacilia
 maciel
 inconciliavel
 samba-de-roda
-fº
+fï¿½
 rezek
 esmoler
 reincidir
@@ -7001,7 +7002,7 @@ olvidavel
 jardinar
 inobscurecive
 obstinado
-vª
+vï¿½
 quadrado
 vibriao
 autoduplicaca
@@ -7251,7 +7252,7 @@ orcamental
 fregatideos
 mtv
 deodoro
-ilmªs
+ilmï¿½s
 lhaneza
 aglomerado
 cantilena
@@ -8488,7 +8489,7 @@ pirao
 denunciatorio
 tigela
 anemometria
-drª
+drï¿½
 h
 estreptococo
 tecelagem
@@ -9219,7 +9220,7 @@ trepa
 subprefeitura
 maximo
 propolis
-emªs
+emï¿½s
 eepg
 atentar
 desencaminhar
@@ -10575,7 +10576,7 @@ texto
 valentin
 neologismo
 criptografico
-revmº
+revmï¿½
 ramado
 geringonca
 aterrorizador
@@ -12368,7 +12369,7 @@ amargurar
 criminar
 fornicacao
 tombo
-srªs
+srï¿½s
 adimplencia
 filogenese
 poro
@@ -12959,7 +12960,7 @@ nauseabundo
 peron
 politiofeno
 citodio
-srtª
+srtï¿½
 aflorar
 involucriform
 renunciavel
@@ -14411,7 +14412,7 @@ arcade
 bobear
 termeletricam
 agostino
-srtªs
+srtï¿½s
 noz-moscada
 superior
 cauterizar
@@ -23871,7 +23872,7 @@ arquibaldo
 citar
 nogueira
 andersen
-exªs
+exï¿½s
 vultuoso
 carcara
 mesaticefalic
@@ -25168,7 +25169,7 @@ balsamar
 escrupulo
 prazer
 caracterizada
-srª
+srï¿½
 descente
 descobrimento
 deplecao
@@ -25190,7 +25191,7 @@ mortifero
 megafone
 bissimetrico
 ornamentos
-sªs
+sï¿½s
 reexpedir
 mugunza
 salao
@@ -26694,7 +26695,7 @@ acordante
 abdala
 capitacao
 ocidentalizav
-sª
+sï¿½
 burrego
 faquir
 dedeira
@@ -28587,7 +28588,7 @@ carangideo
 fusca
 nove
 elisabete
-magª
+magï¿½
 arbitro
 ameacadoramen
 cheda
@@ -31814,7 +31815,7 @@ deus
 elcio
 marrom
 aviado
-ilmª
+ilmï¿½
 algo
 cerne
 laical

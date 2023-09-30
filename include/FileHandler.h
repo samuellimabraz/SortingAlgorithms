@@ -89,6 +89,8 @@ class FileHandler
             return data;
         }
 
+        int getSize() const { return lines.size(); }
+
     private:
         vector<string> lines;
         string filePath;
