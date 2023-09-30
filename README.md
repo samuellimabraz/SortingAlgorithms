@@ -2,6 +2,8 @@
 
 This repository contains a project that combines C++ and Python to implement various sorting algorithms, such as Bubble Sort, Selection Sort, Insertion Sort, Shell Sort, Merge Sort, and Quick Sort. The project includes a graphical user interface (GUI) built using Tkinter to visualize the performance of these sorting algorithms in terms of execution time, while also allowing you to choose the data type to be sorted. Additionally, it provides the ability to compile and execute the C++ sorting program, save the generated performance graphs as images, and visualize a Stochastic Gradient Descent (SGD) linear regression model that was custom-developed for more organic and approximate curve visualization.
 
+![GUI](resource/screenshot.png)
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Sorting Algorithms](#sorting-algorithms)
