@@ -27,10 +27,10 @@ enum class SortingMethod {
 
 /**
  * @brief A class for sorting data using different algorithms.
- * 
- * @tparam T The type of data to sort.
- * @details The available sorting algorithms are Bubble Sort, Selection Sort, and Insertion Sort.
+ * The available sorting algorithms are Bubble Sort, Selection Sort, Insertion Sort, Shell Sort, Merge Sort and Quick Sort.
  * The default sorting method is Bubble Sort.
+ * @tparam T The type of data to sort.
+ * @details The class is implemented using the Facade design pattern.
 */
 template <typename T>
 class SortAlgorithm
