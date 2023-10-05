@@ -14,25 +14,28 @@ public:
 
     void quickSort(std::vector<T>& data, int low, int high) {
         if (low < high) {
-            int pi = partition(data, low, high);
-            quickSort(data, low, pi - 1);
-            quickSort(data, pi + 1, high);
+            int pivot = partition(data, low, high);
+            quickSort(data, low, pivot - 1);
+            quickSort(data, pivot + 1, high);
         }
     }
 
     int partition(std::vector<T>& data, int low, int high) {
-        T pivot = data[high];
-        int i = low - 1;
+        T pivot = data[low];
+        int i = low, j = high;
 
-        for (int j = low; j < high; j++) {
-            if (data[j] < pivot) {
+        while(i < j)
+        {
+            while((data[i] <= pivot) && (i < high))
                 i++;
-                std::swap(data[i], data[j]);
-            }
-        }
+            while((data[j] >= pivot) && (j > low))
+                j--;
 
-        std::swap(data[i + 1], data[high]);
-        return i + 1;
+            if(i < j)
+                std::swap(data[i], data[j]);
+        }
+        std::swap(data[low], data[j]);
+        return j;
     }
 
     std::string getName() const override { return "Quick Sort"; }
