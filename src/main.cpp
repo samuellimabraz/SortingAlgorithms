@@ -22,18 +22,22 @@ const int STRING_TYPE = 2;
 string INPUT_FILE_PATH;
 string OUTPUT_FILE_PATH;
 
+/**
+ * Sorts the data and writes the sorting method, input size, and execution time to the output file
+ * @param data The data to be sorted
+ * @param sorter The sorting algorithm to be used
+ * @param outputFileHandler The FileHandler object to write the output file
+ * @param size The size of the input data
+ */
 template <typename T>
 void sortAndWrite(vector<T>& data, SortAlgorithm<T>& sorter, FileHandler& outputFileHandler, int size) {
-    // Perform the sorting operation and measure the execution time
     cout << "Starting sort...\n";
-    int time, n;
-    const vector<T> copyData(data);
+    int time, n = 2;
+    const vector<T> copyData(data); // Create a copy of the data to be sorted
 
-    if (sorter.getSortingMethod() == SortingMethod::ShellSort || sorter.getSortingMethod() == SortingMethod::MergeSort || sorter.getSortingMethod() == SortingMethod::QuickSort) {
+    // Run the sorting algorithm multiple times, in fast algorithms, to get a more accurate execution time
+    if (sorter.getSortingMethod() == SortingMethod::ShellSort || sorter.getSortingMethod() == SortingMethod::MergeSort || sorter.getSortingMethod() == SortingMethod::QuickSort)
         n = 10;
-    } else {
-        n = 2;
-    }
 
     for (int i = 0; i < n; i++) {
         time += sorter.sort(data, size);
@@ -50,12 +54,18 @@ void sortAndWrite(vector<T>& data, SortAlgorithm<T>& sorter, FileHandler& output
     );
 }
 
+/**
+ * Runs all sorting algorithms on the given data
+ * @param inputFileHandler The FileHandler object to read the input file
+ * @param outputFileHandler The FileHandler object to write the output file
+ */
 template <typename T>
 void runAllSortAlgorithms(FileHandler& inputFileHandler, FileHandler& outputFileHandler) {
     SortAlgorithm<T> sorter;
     vector<T> data;
 
     int total = inputFileHandler.getSize();
+    // Increment the size of the input data by 5% each iteration, 20 executions in total
     int increment = total / 20;
     data.reserve(total);
 
@@ -65,7 +75,7 @@ void runAllSortAlgorithms(FileHandler& inputFileHandler, FileHandler& outputFile
     // Write the header row to the file
     outputFileHandler.write({"Sorting Method,Input Size,Execution Time"}, false);
 
-    // Create vectors of different sizes to sort
+    // Get all sorting algorithms
     auto algorithms = sorter.getAlgorithms();
 
     for (const auto& it : algorithms) {
@@ -74,7 +84,7 @@ void runAllSortAlgorithms(FileHandler& inputFileHandler, FileHandler& outputFile
         sorter.setSortingMethod(method);
         cout << "Sorting Method: " << sorter.getSortingMethodName() << '\n';
 
-        for (int size = increment; size < total; size += increment) {
+        for (int size = increment; size <= total; size += increment) {
             data = inputFileHandler.getSlicelines<T>(size);
             cout << "Size: " << size << '\n'; 
 
@@ -84,6 +94,13 @@ void runAllSortAlgorithms(FileHandler& inputFileHandler, FileHandler& outputFile
     }
 }
 
+
+/**
+ * Handles the command line arguments
+ * @param argc The number of arguments
+ * @param argv The arguments
+ * @return The data type to be used (integer or string)
+ */
 int handleCommandLineArguments(int argc, char *argv[]) {
     int dataType;
 
@@ -106,24 +123,23 @@ int handleCommandLineArguments(int argc, char *argv[]) {
 
 int main(int argc, char *argv[])
 { 
+    // Disable buffering on stdout and stderr, for use with the Python script
     std::setbuf(stdout, NULL);
     std::setbuf(stderr, NULL);
 
     try
     {
-        // Handle command line arguments
         int dataType = handleCommandLineArguments(argc, argv);
 
-        FileHandler inputFileHandler(INPUT_FILE_PATH, true); // Create a FileHandler object to read the input file
-        FileHandler outputFileHandler(OUTPUT_FILE_PATH, false); // Create a FileHandler object to write the output file
+        FileHandler inputFileHandler(INPUT_FILE_PATH, true);
+        FileHandler outputFileHandler(OUTPUT_FILE_PATH, false); 
 
         cout << "Sorting Algorithm for " << (dataType == INTEGER_TYPE ? "integers" : "strings") << '\n';
-        if (dataType == INTEGER_TYPE) {
+        if (dataType == INTEGER_TYPE)
             runAllSortAlgorithms<int>(inputFileHandler, outputFileHandler);
-        } else if (dataType == STRING_TYPE) {
+        else if (dataType == STRING_TYPE) 
             runAllSortAlgorithms<string>(inputFileHandler, outputFileHandler);
-        }
-
+        
     } catch (const std::exception& e) {
         std::cerr << "Erro no programa principal: " << e.what() << '\n';
         return 1;

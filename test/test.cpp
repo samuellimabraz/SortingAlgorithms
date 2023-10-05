@@ -63,3 +63,5 @@ int main() {
 
     return 0;
 }
+
+// g++ -I.\include\ .\test\test.cpp -o .\test\test
