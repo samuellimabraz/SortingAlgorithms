@@ -15,9 +15,9 @@ public:
             for (int i = h; i < n; ++i) {
                 aux = data[i];
                 
-                for (j = i; (j >= h) && (data[j-h] > aux); j -= h) {
+                for (j = i; (j >= h) && (data[j-h] > aux); j -= h) 
                     data[j] = data[j-h];
-                }
+                
                 data[j] = aux;
             }
         }

@@ -40,4 +40,9 @@
 
 __pycache__
 __pycache__/*
-pycache
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+
