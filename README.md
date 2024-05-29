@@ -20,29 +20,32 @@ Sorting is a fundamental operation in computer science, and this project is desi
 
 The project implements the following sorting algorithms, each with its own time complexity characteristics:
 
-1. **Bubble Sort**: Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. It has a time complexity of O(n^2).
+1. **Bubble Sort**: A simple algorithm that compares adjacent elements and swaps them if needed. It repeatedly traverses the list, making it slow for large datasets. Time complexity: **O(n²)**.
 
-2. **Selection Sort**: Selection sort is an in-place comparison sort. It has a time complexity of O(n^2), but it's often faster in practice than bubble sort.
+2. **Selection Sort**: Sorts by finding the minimum element and placing it at the beginning. It's faster than bubble sort in practice but still has a time complexity of **O(n²)**.
 
-3. **Insertion Sort**: Insertion sort builds the final sorted array one item at a time. It has a time complexity of O(n^2) but is very efficient for small datasets.
+3. **Insertion Sort**: Builds the sorted list by inserting each element at its correct position. Efficient for small datasets, but slow for larger ones. Time complexity: **O(n²)**.
 
-4. **Shell Sort**: Shell sort is an improvement over insertion sort, and its time complexity varies depending on the gap sequence used.
+4. **Shell Sort**: Improves upon insertion sort by using gaps to insert elements further apart. Time complexity varies based on the gap sequence (generally between **O(n log n)** and **O(n²)**).
 
-5. **Merge Sort**: Merge sort is a divide-and-conquer algorithm with a time complexity of O(n log n), making it more efficient for larger datasets.
+5. **Merge Sort**: Divides the list into halves, sorts them recursively, and then combines them. More efficient for larger datasets due to its divide-and-conquer nature. Time complexity: **O(n log n)**.
 
-6. **Quick Sort**: Quick sort is also a divide-and-conquer algorithm and typically outperforms merge sort due to its smaller constant factors. It has an average time complexity of O(n log n).
+6. **Quick Sort**: Another divide-and-conquer algorithm that excels for most inputs. It picks a pivot element, partitions the list based on it, and sorts the sub-lists. Generally faster than merge sort due to smaller constants in its time complexity. Average time complexity: **O(n log n)**.
 
-For more details on each algorithm and their implementations, please refer to the respective source code in the `include` directory.
+For more details on each algorithm and their implementations, please refer to the respective source code in the [`include`](/include/) directory.
 
 ## Project Structure
 
 The project is organized into several directories:
 
-- `include`: Contains the definitions of the sorting classes and methods.
-- `output`: Contains subdirectories for saved images, prediction model data, and sorting algorithm execution time data.
-- `resource`: Contains sample data files for sorting (strings and integers).
-- `src`: Contains the main project files: `main.cpp` (C++ sorting program), `gui.py` (Tkinter GUI), and `model.py` (SGD linear regression model).
-- `test`: Contains a C++ test file for unit testing the sorting methods.
+- [`include`](/include/): Contains the definitions of the sorting classes and methods.
+- [`output`](/output/): Contains subdirectories for saved images, prediction model data, and sorting algorithm execution time data.
+- [`resource`](/resource/): Contains sample data files for sorting (strings and integers).
+- [`src`](/src/): Contains the main project files:
+    - [`main.cpp`](/src/main.cpp) (C++ sorting program),
+    - [`gui.py`](/src/gui.py) (Tkinter GUI), and
+    - [`model.py`](/src/model.py) (SGD linear regression model).
+- [`test`](/test/): Contains a C++ test file for unit testing the sorting methods.
 
 ## Usage
 
