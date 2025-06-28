@@ -356,4 +356,5 @@ if __name__ == "__main__":
     prediction_df = pd.concat(dfs_to_concat, ignore_index=True)
 
     # Salvar o DataFrame em um arquivo CSV
-    prediction_df.to_csv(r"output\model\sorting_times_int_predictions.csv", index=False)
+    output_path = os.path.join("output", "model", "sorting_times_int_predictions.csv")
+    prediction_df.to_csv(output_path, index=False)

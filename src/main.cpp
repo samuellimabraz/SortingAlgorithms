@@ -32,7 +32,8 @@ string OUTPUT_FILE_PATH;
 template <typename T>
 void sortAndWrite(vector<T>& data, SortAlgorithm<T>& sorter, FileHandler& outputFileHandler, int size) {
     cout << "Starting sort...\n";
-    int time, n = 2;
+    double time = 0.0;
+    int n = 2;
     const vector<T> copyData(data); // Create a copy of the data to be sorted
 
     // Run the sorting algorithm multiple times, in fast algorithms, to get a more accurate execution time
@@ -106,13 +107,13 @@ int handleCommandLineArguments(int argc, char *argv[]) {
 
     int opt = getopt(argc, argv, "is");
     if (opt == 'i') {
-        INPUT_FILE_PATH = "resource\\numbers.csv";
-        OUTPUT_FILE_PATH = "output\\times\\sorting_times_int.csv";
+        INPUT_FILE_PATH = "resource/numbers.csv";
+        OUTPUT_FILE_PATH = "output/times/sorting_times_int.csv";
         dataType = INTEGER_TYPE;
 
     } else if (opt == 's') {
-        INPUT_FILE_PATH = "resource\\aurelio40000.txt";
-        OUTPUT_FILE_PATH = "output\\times\\sorting_times_string.csv";
+        INPUT_FILE_PATH = "resource/aurelio40000.txt";
+        OUTPUT_FILE_PATH = "output/times/sorting_times_string.csv";
         dataType = STRING_TYPE;
     } else {
         throw std::invalid_argument("Usage: [-i] [-s]");

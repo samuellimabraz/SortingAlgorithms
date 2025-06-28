@@ -5,7 +5,7 @@ import pandas as pd
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 import threading
-from model import *
+from .model import *
 
 import os
 
@@ -320,7 +320,17 @@ class Application(tk.Frame):
             bool: True if compilation is successful, False otherwise.
         """
         # Comando para compilar
-        compile_command = "g++ -std=c++17 -I.\include .\src\main.cpp .\src\FileHandler.cpp -o .\output\main"
+        output_path = os.path.join("output", "main")
+        compile_command = [
+            "g++",
+            "-std=c++17",
+            "-I",
+            "include",
+            os.path.join("src", "main.cpp"),
+            os.path.join("src", "FileHandler.cpp"),
+            "-o",
+            output_path,
+        ]
 
         # Iniciar o processo de compilação e execução
         compile_process = subprocess.Popen(
@@ -362,7 +372,11 @@ class Application(tk.Frame):
         if not self.compile_sorting():
             return
 
-        execute_command = f".\output\main.exe {self.data_type_algorithm}"
+        executable_path = os.path.join("output", "main")
+        if os.name == "nt":
+            executable_path += ".exe"
+
+        execute_command = f"./{executable_path} {self.data_type_algorithm}"
 
         # Função para ler e exibir a saída em tempo real
         def execute_program():
